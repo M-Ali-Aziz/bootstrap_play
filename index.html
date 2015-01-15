@@ -19,7 +19,7 @@
         <div class="container-fluid">
           <!-- navbar "header" -->
           <div class="navbar-header">
-            <!-- comment this out if you want a pretty mobile menu -->
+            <!-- a pretty mobile menu button, only visible on smaller screens -->
             <!-- note the data-target attribute is pointing a CSS id -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#wu14-navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -27,6 +27,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
+            <!-- the "brand" text in the navbar -->
             <a class="navbar-brand" href="#">Mezz</a>
           </div>
           <!-- the collapse id automatically gives us a nice mobile menu -->
@@ -90,8 +91,11 @@
           </div>
         </section>
 
+        <!-- an adminForm -->
         <section class="adminForm col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <!-- using the .form-horizontal -->
           <form class="form-horizontal">
+            <!-- put the header in a form-group with an offset to make it fit in with rest of content -->
             <div class="form-group">
               <div class="col-sm-8 col-sm-offset-2">
                 <h2>Administer pages:</h2>
@@ -115,13 +119,11 @@
                 <textarea id="page_body" class="form-control" rows="10" placeholder="Enter page body content..." required></textarea>
               </div>
             </div>
-            <!-- placing button outside form group separates it from the group -->
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success btn-lg">Save Page</button>
               </div>
             </div>
-          
           </form>
         </section>
 
