@@ -36,7 +36,8 @@ $(function() {
     var adminFormData = {
       ":title" : $(this).find("#page_title").val(),
       ":body" : $(this).find("#page_body").val(),
-      ":user_id" : 1
+      //":user_id" : 1 //this has been moved to PHP, 
+      //keep user info in PHP for safety reasons
     };
 
     //send adminFormData with AJAX to DB
