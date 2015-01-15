@@ -59,6 +59,8 @@ $(function() {
     /*
       $(this).attr("class") = contentListLink || adminFormLink;
     */
+    //classToShow is always the same as $(this).attr("class") minus
+    //the last four(4) characters (- "Link")
     var classToShow = $(this).attr("class").substr(0, $(this).attr("class").length-4);
     /*
       classToShow = contentList || adminForm;
