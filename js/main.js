@@ -4,6 +4,31 @@ $(function() {
   //always getPages at DOMReady
   getPages();
 
+  //navbar navbarSearchForm submitHandler
+  $(".navbarSearchForm").submit(function() {
+    var search_param = $(this).find('input[type="text"]').val();
+    getPages(search_param);
+
+    return false;
+  });
+
+  //adminForm form submitHandler
+  $(".adminForm form").submit(function() {
+    //prepare adminFormData to be sent with AJAX
+    var adminFormData = {
+      ":title" : $(this).find("#page_title").val(),
+      ":body" : $(this).find("#page_body").val(),
+      ":user_id" : 1
+    };
+
+    insertNewPage(adminFormData);
+
+    //empty the form once we're done with the information in it
+    $(this).reset();
+    return false;
+  });
+
+  //sidebar nav clickhandler
   $(".mySidebar .nav a").click(function(event) {
     //remove .active class from other nav items,
     $(this).parent().siblings().removeClass("active");
@@ -35,6 +60,7 @@ $(function() {
   function getPages(search_param) {
     $.ajax({
       url: "php/get_content.php",
+      type: "get",
       dataType: "json",
       data: {
         "search_param": search_param
@@ -60,6 +86,24 @@ $(function() {
       //append newTableRow to the contentList table
       $(".contentList table").append(newTableRow);
     }
+  }
+
+  function insertNewPage(adminFormData) {
+    $.ajax({
+      url: "php/save_content.php",
+      type: "post",
+      dataType: "json",
+      data: {
+        "page_data" : adminFormData
+      },
+      success: function(data) {
+        console.log("insertNewPage success: ", data);
+        $(".contentListLink").click();
+      },
+      error: function(data) {
+        console.log("insertNewPage error: ", data);
+      }
+    });
   }
 
 });
