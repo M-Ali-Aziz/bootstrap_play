@@ -110,7 +110,7 @@ $(function() {
     console.log("listAllPages success: ", data);
     //remove all table rows in .contentList that does not 
     //have the .pageTableHeads class
-    $(".contentList table").children().not(".pageTableHeads").remove();
+    $(".contentList table tr").not(".pageTableHeads").remove();
 
     //and build new table rows from data
     for (var i = 0; i < data.length; i++) {
